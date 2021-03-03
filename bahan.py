@@ -23,3 +23,21 @@
                             random.choice(botmid).cancelChatInvitation(op.param1, [invite])
                             random.choice(botmid).deleteOtherFromChat(op.param1, [op.param2])
 #===========================
+#Cmd proInvite
+
+
+            if cmd == "proinvite on":
+                if sender in creator:
+                    if to not in proInvite:
+                        proInvite.append(to)
+                        cl.sendMessage(to, "pro invite aktif")
+                    else:
+                        cl.sendMessage(to, "pro invite sudah aktif")
+
+            if cmd == "proinvite off":
+                if sender in creator:
+                    if to in proInvite:
+                        proInvite.remove(to)
+                        cl.sendMessage(to, "pro invite tidak aktif")
+                    else:
+                        cl.sendMessage(to, "pro invite sudah tidak aktif")

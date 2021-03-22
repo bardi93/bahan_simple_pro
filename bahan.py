@@ -123,6 +123,8 @@ Part 4
                                         random.choice(bot).updateChat(chat.chats[0],4)
                                     else:
                                         pass
+                                except:
+                                    pass
 #projoin
         if op.type in [17, 130]:
                 if op.param1 in proJoin:

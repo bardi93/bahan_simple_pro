@@ -109,6 +109,60 @@ Part 2
                     else:
                         cl.sendMessage(to, "pro Cancel sudah tidak aktif")
 #============================================
+Part 4
+#pro qr
+        if op.type in [11, 122]:
+                if op.param1 in proQr:
+                    if op.param2 not in creator or botmid:
+                            if cl.getChats([op.param1]).chats[0].extra.groupExtra.preventedJoinByTicket == True:
+                                try:
+                                    wait["blacklist"][op.param2] = True
+                                    random.choice(bot).deleteOtherFromChat(op.param1, [op.param2])
+                                    chat = random.choice(bot).getChats([op.param1])
+                                    if chat.chats[0].extra.groupExtra.preventedJoinByTicket == True:
+                                        random.choice(bot).updateChat(chat.chats[0],4)
+                                    else:
+                                        pass
+#projoin
+        if op.type in [17, 130]:
+                if op.param1 in proJoin:
+                    if op.param2 not in creator or botmid:
+                            random.choice(bot).deleteOtherFromChat(op.param1, [op.param2])
+                                        
+#Cmd protect url
+
+            if cmd == "proqr on":
+                if sender in creator:
+                    if to not in proQr:
+                        proQr.append(to)
+                        cl.sendMessage(to, "pro url aktif")
+                    else:
+                        cl.sendMessage(to, "pro url sudah aktif")
+
+            if cmd == "proqr off":
+                if sender in creator:
+                    if to in proQr:
+                        proQr.remove(to)
+                        cl.sendMessage(to, "pro url tidak aktif")
+                    else:
+                        cl.sendMessage(to, "pro url sudah tidak aktif")
+#Cmd protect join
+
+            if cmd == "projoin on":
+                if sender in creator:
+                    if to not in proJoin:
+                        proJoin.append(to)
+                        cl.sendMessage(to, "pro Join aktif")
+                    else:
+                        cl.sendMessage(to, "pro Join sudah aktif")
+
+            if cmd == "projoin off":
+                if sender in creator:
+                    if to in proJoin:
+                        proJoin.remove(to)
+                        cl.sendMessage(to, "pro Join tidak aktif")
+                    else:
+                        cl.sendMessage(to, "pro Join sudah tidak aktif")
 
 
 
